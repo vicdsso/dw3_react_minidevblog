@@ -1,0 +1,6 @@
+.footer{
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: #edf3f6;
+}
