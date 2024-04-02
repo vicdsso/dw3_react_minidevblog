@@ -6,7 +6,8 @@ const [list] = useState(['Victória', 'Kamily', 'Kayro', 'Daniel'])
 
 const [number, setNumber] = useState(15)
 
-const [user] = useState(
+
+const [user, setUser] = useState(
     [
         {id:1, nome: 'José Carlos', idade: 44},
         {id:2, nome: 'Maria Rosa', idade: 25},
@@ -18,7 +19,12 @@ const [user] = useState(
         {id:8, nome: 'Pedro Lucas', idade: 38},
     ]
 )
-
+    const deleteRandonUser =()=>{
+        const randomNumber = Math.floor(Math.random() * user.length)
+        setUser((prevUsers)=>{
+            return prevUsers.filter((user)=> randomNumber !== user.id)
+        })
+    }
   return (
   
     <> 
@@ -51,20 +57,20 @@ const [user] = useState(
                 {
                       user.map((pessoa, i) => (
                       
-            //<tr key={i}> ou <tr key={pessoa.id}>
+           
                 <tr key={i}> 
 
                     <td>{pessoa.id}</td>
                     <td>{pessoa.nome}</td>
                     <td>{pessoa.idade}</td>
-
                 </tr>
+
                  ))
                
                 }
 
         </table>
-        
+        <button onClick={deleteRandonUser}> excluir Randomicamente</button>
     </div>
     </>
   )
